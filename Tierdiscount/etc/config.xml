@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Cybernetikz_Tierdiscount>
+            <version>0.1.2</version>
+        </Cybernetikz_Tierdiscount>
+    </modules>
+
+    <adminhtml>
+        <layout>
+            <updates>
+                <tierdiscount>
+                    <file>tierdiscount.xml</file>
+                </tierdiscount>
+            </updates>
+        </layout>
+    </adminhtml>
+
+    <!-- <frontend>
+        <events>
+            <cms_page_render>
+                <observers>
+                    <tierdiscount>
+                        <type>singleton</type>
+                        <class>Cybernetikz_Tierdiscount_Model_Header</class>
+                        <method>add</method>
+                    </tierdiscount>
+                </observers>
+            </cms_page_render>
+        </events>
+    </frontend> -->
+
+    <global>
+        <blocks>
+            <tierdiscount>
+                <class>Cybernetikz_Tierdiscount_Block</class>
+            </tierdiscount>
+            <adminhtml>
+                <rewrite>
+                    <catalog_product_edit_tab_price_tier>Cybernetikz_Tierdiscount_Block_Adminhtml_Catalog_Product_Edit_Tab_Price_Tier</catalog_product_edit_tab_price_tier>
+                </rewrite>
+            </adminhtml>
+        </blocks>
+        <models>
+            <tierdiscount>
+                <class>Cybernetikz_Tierdiscount_Model</class>
+            </tierdiscount>
+            <catalog>
+                <rewrite>
+                    <product_attribute_backend_tierprice>Cybernetikz_Tierdiscount_Model_Product_Attribute_Backend_Tierprice</product_attribute_backend_tierprice>
+                </rewrite>
+            </catalog>
+            <catalog_resource_eav_mysql4>
+                <rewrite>
+                    <product_attribute_backend_tierprice>Cybernetikz_Tierdiscount_Model_Resource_Eav_Mysql4_Product_Attribute_Backend_Tierprice</product_attribute_backend_tierprice>
+                </rewrite>
+            </catalog_resource_eav_mysql4>
+        </models>
+        <resources>
+            <tierdiscount_setup>
+                <setup>
+                    <module>Cybernetikz_Tierdiscount</module>
+                    <class>Cybernetikz_Tierdiscount_Model_Mysql4_Setup</class>
+                </setup>
+            </tierdiscount_setup>
+        </resources>
+
+        <helpers>
+            <tierdiscount>
+                <class>Cybernetikz_Tierdiscount_Helper</class>
+            </tierdiscount>
+        </helpers>
+    </global>
+</config>
